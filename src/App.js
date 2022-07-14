@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useForm } from "react-hook-form";
+import Header from './components/Header';
+import "./App.css"
+import Dashboard from './components/Dashboard';
+import TransactionTable from './components/TransactionsTable';
 
 function App() {
     const [loading, setloading] = useState(true); 
     const [transactions, setTransactions] = useState([]); 
-    const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
         setTimeout(() => {
@@ -35,11 +37,11 @@ function App() {
         localStorage.setItem("transactionsAdd", JSON.stringify(deleteTransaction));
     }
 
-    const editTransaction = (id) => {
-        const title = ("Melão");
-        const type = ("Fruta");
-        const category = ("Compras");
-        const value = (10);
+    const editTransaction = ( transaction, id) => {
+        const title = transaction.title;
+        const type = transaction.type;
+        const category = transaction.category;
+        const value = transaction.value;
         let data = JSON.parse(localStorage.getItem('transactionsAdd'));
         const myData = data.map(x => {
             if (x.id === id) {
@@ -59,44 +61,17 @@ function App() {
         window.location.reload();
     }
 
-    const onSubmit = (data) => {
-      const Transaction = {
-        title: data.title,
-        type: data.type,
-        category: data.category,
-        value: data.value
-      }
-      console.log(Transaction);
-      addTransaction(Transaction)
-    }
-
     return (  
-      <>
-        <div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input placeholder='titulo' type="text" {...register("title")}/>
-            <input placeholder='tipo' type="text" {...register("type")}/>
-            <input placeholder='categoria' type="text" {...register("category")}/>
-            <input placeholder='valor' type="text" {...register("value")}/>
-            <button onClick={handleSubmit}>Enviar</button>
-          </form>
+        <div className='content-app'> 
+          <Header/>
+          <Dashboard transactions= {transactions} />
+          <TransactionTable 
+            addTransaction={addTransaction} 
+            transactions= {transactions} 
+            deleteTransaction={deleteTransaction} 
+            editTransaction={editTransaction}
+          />
         </div>
-        <div>
-        {
-        transactions?.map((transaction, index) => (
-          <>
-            <h1 key={index}>{transaction.id}</h1>
-            <h1>{transaction.title}</h1>
-            <h1>{transaction.type}</h1>
-            <h1>{transaction.category}</h1>
-            <h1>{transaction.value}</h1>
-            <button onClick={() => deleteTransaction(transaction.id)}>Excluir</button>
-            <button onClick={() => editTransaction(transaction.id)}>Editar</button>
-          </>
-        ))
-      }
-        </div>
-      </>
     )
 }
 export default App;

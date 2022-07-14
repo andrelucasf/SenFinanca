@@ -1,0 +1,77 @@
+.dashboard-content {
+  display: grid;
+  width: 90%;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+  background-color: transparent;
+}
+
+.dashboard-card {
+  height: 144px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  margin-top: -25%;
+  border-radius: 15px;
+  padding: 5% 10%;
+}
+
+.dashboard-card-title {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard-title {
+  font-size: 18px;
+  color: rgb(75, 75, 75);
+  margin: 0;
+}
+
+.dashboard-card-income {
+  font-size: 30px;
+  font-weight: 600;
+  color: #00c04e;
+  padding-top: 15px;
+  margin: 0;
+}
+
+.dashboard-card-expense {
+  font-size: 30px;
+  font-weight: 600;
+  color: #ef4458;
+  padding-top: 15px;
+  margin: 0;
+}
+
+.dashboard-card-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.total {
+  background-color: #00c04e;
+}
+
+.total-negative {
+  background-color: #ef4458;
+}
+
+.dashboard-title-total {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.dashboard-card-total {
+  font-size: 30px;
+  font-weight: 600;
+  color: #ffffff;
+  padding-top: 15px;
+  margin: 0;
+}
