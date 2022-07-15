@@ -2,8 +2,7 @@ import { useForm } from "react-hook-form";
 import "./styles.css"
 import bin from "../../assets/bin.svg"
 import edit from "../../assets/edit.svg"
-import filter from "../../assets/filter.svg"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { formattedCurrency } from "../services/formattedCurrency";
 
 const TransactionTable = ( {addTransaction, transactions, deleteTransaction, editTransaction}) => {
@@ -12,7 +11,6 @@ const TransactionTable = ( {addTransaction, transactions, deleteTransaction, edi
   const [transactionEdit, setTransactionEdit] = useState({})
   const [transactionsFilter, setTransactionsFilter] = useState(0)
   const [transactionsTemp, setTransactionsTemp] = useState(0)
-  const [showFilter, setShowFilter] = useState(false)
   const { register, handleSubmit } = useForm()
 
   const onSubmit = (data) => {
