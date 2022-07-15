@@ -6,14 +6,7 @@ import Dashboard from './components/Dashboard';
 import TransactionTable from './components/TransactionsTable';
 
 function App() {
-    const [loading, setloading] = useState(true); 
     const [transactions, setTransactions] = useState([]); 
-
-    useEffect(() => {
-        setTimeout(() => {
-            setloading(false);
-        }, 3500);
-    }, [])
     const getTransactions = JSON.parse(localStorage.getItem("transactionsAdd"));
 
     useEffect(() => {

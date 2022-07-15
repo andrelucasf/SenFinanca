@@ -2,14 +2,18 @@ import { useForm } from "react-hook-form";
 import "./styles.css"
 import bin from "../../assets/bin.svg"
 import edit from "../../assets/edit.svg"
-import { useState } from "react";
+import filter from "../../assets/filter.svg"
+import { useState, useEffect } from "react";
 import { formattedCurrency } from "../services/formattedCurrency";
 
 const TransactionTable = ( {addTransaction, transactions, deleteTransaction, editTransaction}) => {
   const [showEdit, setShowEdit] = useState(false)
   const [idTransactionEdit, setIdTransactionEdit] = useState("")
   const [transactionEdit, setTransactionEdit] = useState({})
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [transactionsFilter, setTransactionsFilter] = useState(0)
+  const [transactionsTemp, setTransactionsTemp] = useState(0)
+  const [showFilter, setShowFilter] = useState(false)
+  const { register, handleSubmit } = useForm()
 
   const onSubmit = (data) => {
     const Transaction = {
@@ -23,6 +27,23 @@ const TransactionTable = ( {addTransaction, transactions, deleteTransaction, edi
       editTransaction(Transaction, idTransactionEdit)
     else
       addTransaction(Transaction)
+  }
+
+  const filterType = () => {
+    setTransactionsFilter(1)
+    let x = document.getElementById("filterType").value;
+    const res = transactions.filter((item) => item.type === x)
+    .map((transaction) => (transaction));
+    setTransactionsTemp(res)
+  }
+
+  const filterCategory = () => {
+    setTransactionsFilter(2)
+    let x = document.getElementById("filterCategory").value;
+    console.log(x);
+    const res = transactions.filter((item) => item.category === x)
+    .map((transaction) => (transaction));
+    setTransactionsTemp(res)
   }
 
   return (
@@ -45,6 +66,25 @@ const TransactionTable = ( {addTransaction, transactions, deleteTransaction, edi
           }
         </form>
       </div>
+      <div className="inline-flex margin-bottom-20">
+        <label className="transaction-input-label-1" for="type">Filtre por tipo:</label>
+        <select id="filterType" className="transaction-input" type="text" onChange={() => filterType()}>
+          <option value=""></option>
+          <option value="Entrada">Entrada</option>
+          <option value="Saida">Saída</option>
+        </select>
+        <label className="transaction-input-label-2" for="category">Filtre por categoria:</label>
+        <select id="filterCategory" className="transaction-input" type="text" onChange={() => filterCategory()}>
+         <option value=""></option>
+          {transactions?.map((transaction, index) => (
+          <option key={index} value={transaction.category}>{transaction.category}</option>
+            ))
+          }
+        </select>
+        <div>
+          <button className="transaction-button-clear" type="submit" onClick={() => setTransactionsFilter(0)}>Limpar</button>
+        </div>
+      </div>
       <div className="transaction-table-overflow">
       <table className="transaction-table">
         <thead>
@@ -56,7 +96,48 @@ const TransactionTable = ( {addTransaction, transactions, deleteTransaction, edi
           </tr>
         </thead>
         <tbody>
-        {transactions?.map((transaction, index) => (
+        {transactionsFilter === 0 &&
+          transactions?.map((transaction, index) => (
+          <tr key={transaction.id}>
+          <td className="transaction-table-td">{transaction.title}</td>
+          <td className="transaction-table-td">{transaction.type}</td>
+          <td className="transaction-table-td">{transaction.category}</td>
+          <td className="transaction-table-td">{formattedCurrency(transaction.value)}</td>
+          <td className="transaction-table-td table-align-right"> 
+          <div className="inline-flex">
+            <span onClick={() => {setTransactionEdit(transaction); setIdTransactionEdit(transaction.id); setShowEdit(true);}}>
+              <img className="transaction-table-icons" src={edit} alt="edit"/>
+            </span>
+            <span onClick={() => deleteTransaction(transaction.id)}>
+              <img className="transaction-table-icons" src={bin} alt="bin"/>
+            </span>
+          </div>
+          </td>
+          </tr>
+          ))
+        }
+        {transactionsFilter === 1 &&
+          transactionsTemp?.map((transaction, index) => (
+          <tr key={transaction.id}>
+          <td className="transaction-table-td">{transaction.title}</td>
+          <td className="transaction-table-td">{transaction.type}</td>
+          <td className="transaction-table-td">{transaction.category}</td>
+          <td className="transaction-table-td">{formattedCurrency(transaction.value)}</td>
+          <td className="transaction-table-td table-align-right"> 
+          <div className="inline-flex">
+            <span onClick={() => {setTransactionEdit(transaction); setIdTransactionEdit(transaction.id); setShowEdit(true);}}>
+              <img className="transaction-table-icons" src={edit} alt="edit"/>
+            </span>
+            <span onClick={() => deleteTransaction(transaction.id)}>
+              <img className="transaction-table-icons" src={bin} alt="bin"/>
+            </span>
+          </div>
+          </td>
+          </tr>
+          ))
+        }
+        {transactionsFilter === 2 &&
+          transactionsTemp?.map((transaction, index) => (
           <tr key={transaction.id}>
           <td className="transaction-table-td">{transaction.title}</td>
           <td className="transaction-table-td">{transaction.type}</td>

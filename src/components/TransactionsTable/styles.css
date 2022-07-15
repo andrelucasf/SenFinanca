@@ -63,6 +63,7 @@
 
 .inline-flex {
   display: inline-flex;
+  align-items: center;
 }
 
 .transaction-form {
@@ -83,4 +84,44 @@
 
 .transaction-table-overflow {
   overflow-x: auto;
+}
+
+.transaction-filter-img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  float: right;
+}
+
+.transaction-input-label-1 {
+  color: #797777;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.transaction-input-label-2 {
+  color: #797777;
+  font-size: 16px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.transaction-button-clear {
+  width: 120px;
+  min-height: 40px;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 400;
+  border-radius: 8px;
+  background-color: #005476;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin-left: 15px;
 }
