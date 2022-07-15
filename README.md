@@ -17,9 +17,9 @@ Link do projeto: [SenFinança](https://glittery-queijadas-7343b7.netlify.app/)
 
 # :camera: Screenshots
 
-![](./../SenFinanca/src/assets/sen-financa.png)
-![](./../SenFinanca/src/assets/sen-financa-2.png)
-![](./../SenFinanca/src/assets/sen-financa-3.png)
+![](././src/assets/sen-financa.png)
+![](././src/assets/sen-financa-2.png)
+![](././src/assets/sen-financa-3.png)
 
 # :rocket: Tecnologias
 
