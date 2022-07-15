@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# SenFinança
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  Este projeto é um desafio para testar conhecimentos em JavaScript, React, HTML e CSS e agregar ao meu portfólio;
 
-## Available Scripts
+  O objetivo foi desenvolver uma aplicação financeira onde o usuário conseguisse inserir, alterar e excluir suas despesas e ganhos. Visualizar os dados inseridos e o balançõ total das contas. Além disso, a implementação de 2 filtros, de tipo e categoria, e a persistência dos dados no localStorage.
+</p>
 
-In the project directory, you can run:
+Link do projeto: [SenFinança](https://glittery-queijadas-7343b7.netlify.app/)
 
-### `npm start`
+<div align="center">
+  <sub> Feito por
+    <a href="https://github.com/andrelucasf">André Lucas.
+  </sub>
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# :camera: Screenshots
+<div align="center">
+   <img src="./../SenFinanca/src/assets/sen-financa.png" width="800px">
+   <img src="./../SenFinanca/src/assets/sen-financa-2.png" width="800px">
+   <img src="./../SenFinanca/src/assets/sen-financa-3.png" width="800px">
+</div>
 
-### `npm test`
+# :rocket: Tecnologias
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este projeto foi feito utilizando as seguintes tecnologias:
 
-### `npm run build`
+- JavaScript      
+- React    
+- CSS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# :computer: Como rodar
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone o repositório
+$ git clone https://github.com/LeonneBrito/dt.money.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Instale as dependências
+$ npm install
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Rode a aplicação
+$ npm start
+```
+Vá para http://localhost:3000/ e veja o resultado.
