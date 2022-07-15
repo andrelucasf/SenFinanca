@@ -49,13 +49,29 @@ const TransactionTable = ( {addTransaction, transactions, deleteTransaction, edi
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="transaction-form" >
-            <input className="transaction-input" placeholder='Título' defaultValue={transactionEdit.title} type="text" {...register("title")}/>
-            <select className="transaction-input" placeholder='Tipo' defaultValue={transactionEdit.type} type="text" {...register("type")}>
+            <input className="transaction-input" placeholder='Título' defaultValue={transactionEdit.title} type="text" 
+            {...register("title", {
+              required: true,
+              pattern: /^[a-zA-Zà-ùÀ-Ù]+$/,
+            })}/>
+            <select className="transaction-input" placeholder='Tipo' defaultValue={transactionEdit.type} type="text" 
+            {...register("type", {
+              required: true,
+              pattern: /^[a-zA-Zà-ùÀ-Ù]+$/,
+            })}>
               <option value="Entrada">Entrada</option>
               <option value="Saida">Saída</option>
             </select>
-            <input className="transaction-input" defaultValue={transactionEdit.category} placeholder='Categoria' type="text" {...register("category")}/>
-            <input className="transaction-input margin-0" defaultValue={transactionEdit.value} placeholder='Valor' type="text" {...register("value")}/>
+            <input className="transaction-input" defaultValue={transactionEdit.category} placeholder='Categoria' type="text" 
+            {...register("category", {
+              required: true,
+              pattern: /^[a-zA-Zà-ùÀ-Ù]+$/,
+            })}/>
+            <input className="transaction-input margin-0" defaultValue={transactionEdit.value} placeholder='Valor' type="text" 
+            {...register("value", {
+              required: true,
+              pattern: /^[0-9]+$/,
+            })}/>
           </div>
           {showEdit ?
             <button className="transaction-button" type="submit">Editar transação</button>

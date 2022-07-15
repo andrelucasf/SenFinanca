@@ -52,7 +52,7 @@ const Dashboard = ({transactions}) => {
         </div>
         <p className="dashboard-card-expense">{formattedCurrency(expense)}</p>
       </div>
-      <div className={total > 0 ? "dashboard-card total" : "dashboard-card total-negative"}>
+      <div className={total >= 0 ? "dashboard-card total" : "dashboard-card total-negative"}>
         <div className="dashboard-card-title">
           <p className="dashboard-title-total">Total</p>
           <img className="dashboard-card-logo" src={logo} alt="income"/>
